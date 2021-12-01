@@ -1,17 +1,26 @@
-# Christmas Card 2019
+# Christmas Card 2021
 
-![image](christmas-card-2019.png)
+![image](christmas-card-2021.png)
 
-Christmas card set in LaTeX with EBGaramond.
+Christmas card set in LaTeX with EB Garamond.
+
+Based on my [2021 christmas card](https://github.com/Kamik423/christmas-card-2019).
+
+The image here is generated via
+
+```bash
+pdftoppm christmas-card-2021.pdf render -r 300 -png; mv -f render-1.png christmas-card-2021.png  
+```
 
 ## License
 
-The orignal images belongs to [u/ImACumWhore](https://www.reddit.com/user/ImACumWhore) on reddit. They have all the rights to it. It was originally shared in [a post](https://www.reddit.com/r/MedievalCats/comments/e713ht/king_derpy/) on [r/MedievalCats](https://www.reddit.com/r/MedievalCats/). It was modified in GIMP.
+The original images are from [fromoldbooks](https://www.fromoldbooks.org/Dalziel-RecordOfWork/pages/000-front-cover-good-words-1872/) and [oldbookillustrations](https://www.oldbookillustrations.com/illustrations/brain-body/) but have been modified in Acorn.
+Only freely available personal-use versions have been used; I do not own any rights.
 
 The LaTeX source and the PDF are otherwise licensed under the MIT License; feel free to modify or reuse it:
 
 ```
-Copyright © 2019 Kamik423
+Copyright © 2021 Kamik423
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
