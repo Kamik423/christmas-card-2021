@@ -1,0 +1,69 @@
+% !TEX program = lualatex
+
+\documentclass{article}
+\usepackage[margin=5mm,paperwidth=10.5cm,paperheight=16.4cm]{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{luacolor}
+\usepackage{ebgaramond}
+\usepackage[ngerman]{babel}
+\usepackage{pgfpages}
+\usepackage{tikz, tikzpagenodes}
+\usepackage[a4,cam,cross]{crop}
+\setmainfont[
+    Ligatures={Common,Rare,Historic,TeX},
+    Numbers=OldStyle,RawFeature={+liga,+hlig,+clig,+dlig,+calt}
+]{EB Garamond}
+
+\definecolor{christmas}{HTML}{b12424}
+\lstset{
+    language=TeX,morekeywords={begin,renewcommand,usepackage},
+    basicstyle=\tiny\ttfamily,
+    keywordstyle=\color{christmas},commentstyle=\color{darkgray},
+}
+\renewcommand{\c}[1]{{\textcolor{christmas}{#1}}}
+
+\pgfpagesdeclarelayout{christmas}{
+    \edef\pgfpageoptionheight{\the\paperheight}
+    \edef\pgfpageoptionwidth{\the\paperwidth}
+    \edef\pgfpageoptionborder{0pt}
+}{  \pgfpagesphysicalpageoptions{
+        logical pages=2, physical height=29.7cm, physical width=21.0cm
+    }\pgfpageslogicalpageoptions{2}{border shrink=\pgfpageoptionborder,
+        resized width=10.5cm, resized height=16.4cm,
+        center=\pgfpoint{.25\pgfphysicalwidth}{.5\pgfphysicalheight}
+    }\pgfpageslogicalpageoptions{1}{border shrink=\pgfpageoptionborder,
+        resized width=10.5cm, resized height=16.4cm,
+        center=\pgfpoint{.75\pgfphysicalwidth}{.5\pgfphysicalheight}
+    }
+}
+
+\begin{document}
+\pgfpagesuselayout{christmas}\newgeometry{margin=2cm,top=2.5cm,bottom=3cm}%
+\pagenumbering{gobble}\centering%
+% www.fromoldbooks.org/Dalziel-RecordOfWork/pages/000-front-cover-good-words-1872
+% Modified to better fit the image through image enhancement.
+\begin{tikzpicture}[remember picture, overlay] \node[anchor=center]
+    at (current page.center) {\includegraphics[width=.95\paperwidth]{frame}};
+\end{tikzpicture} % You are being loved <3
+
+{\huge \c{F}rohe \c{W}eihnachten\\[5mm]}
+{\Huge\textit{\c{\&}}}\\[5mm]
+{\large einen guten \c{R}utsch ins neue \c{J}ahr}\\[2mm]
+{\large wünschen \c{H}ans und \c{F}lorentine.}\\
+
+% https://www.oldbookillustrations.com/illustrations/brain-body/
+% Manually thresholded, modified and edited
+\vfill\includegraphics[height=4.75cm]{head}
+
+\vfill\begin{minipage}[c]{.8\textwidth}\centering%
+    \c{\glqq}Je kaputter die Welt draußen,
+    desto heiler muss sie zu Hause sein.\c{\grqq}\\[2mm]
+    \c{---}Reinhard Mey % alternative hand: \c{\char"261E}
+\end{minipage}
+
+\newpage\restoregeometry %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstinputlisting{christmas-card-2021.tex} % code page / backside
+\vfill Typeset by Hans in EB Garamond in \LaTeX.
+\end{document}
