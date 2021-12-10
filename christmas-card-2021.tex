@@ -6,19 +6,13 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{luacolor}
-\usepackage{ebgaramond}
 \usepackage[ngerman]{babel}
 \usepackage{pgfpages}
 \usepackage{tikz, tikzpagenodes}
 \usepackage[a4,cam,cross]{crop}
-\setmainfont[RawFeature={+liga,+hlig,+clig,+dlig,+calt}]{EB Garamond}
+\setmainfont{Antykwa Poltawskiego Light}
 
-\definecolor{christmas}{HTML}{b12424}
-\lstset{
-    language=TeX,morekeywords={begin,renewcommand,usepackage},
-    basicstyle=\tiny\ttfamily,
-    keywordstyle=\color{christmas},commentstyle=\color{darkgray},
-}
+\definecolor{christmas}{HTML}{931111}
 \renewcommand{\c}[1]{{\textcolor{christmas}{#1}}}
 
 \pgfpagesdeclarelayout{christmas}{
@@ -37,7 +31,7 @@
 }
 
 \begin{document}
-\pgfpagesuselayout{christmas}\newgeometry{margin=2cm,top=2.5cm,bottom=3cm}%
+\pgfpagesuselayout{christmas}\newgeometry{margin=2cm,top=3.3cm,bottom=3cm}%
 \pagenumbering{gobble}\centering%
 % www.fromoldbooks.org/Dalziel-RecordOfWork/pages/000-front-cover-good-words-1872
 % Modified to better fit the image through image enhancement.
@@ -45,9 +39,9 @@
     at (current page.center) {\includegraphics[width=.95\paperwidth]{frame}};
 \end{tikzpicture} % You are being loved <3
 
-{\huge \c{F}rohe \c{W}eihnachten\\[5mm]}
-{\Huge\textit{\c{\&}}}\\[5mm]
-{\large einen guten \c{R}utsch ins neue \c{J}ahr}\\[2mm]
+{\LARGE \c{F}röhliche \c{W}eihnachten}\\\vfill
+{\setmainfont{EB Garamond}\LARGE\textit{\c{\&}}}\\\vfill
+{\large ein glückliches neues \c{J}ahr}\\[2mm]
 {\large wünschen \c{H}ans und \c{F}lorentine.}\\
 
 % https://www.oldbookillustrations.com/illustrations/brain-body/
@@ -57,12 +51,17 @@
 \vfill\begin{minipage}[c]{.8\textwidth}\centering%
     \c{\glqq}Je kaputter die Welt draußen,
     desto heiler muss sie zu Hause sein.\c{\grqq}\\[2mm]
-    \c{---}Reinhard Mey % alternative hand: \c{\char"261E}
+    \c{---}Reinhard Mey
 \end{minipage}
 
 \newpage\restoregeometry %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lstinputlisting{christmas-card-2021.tex} % code page / backside
-\vfill Typeset by Hans in EB Garamond in \LaTeX.
+\lstinputlisting[
+    language=TeX,morekeywords={begin,renewcommand,usepackage},
+    basicstyle=\tiny\ttfamily,
+    keywordstyle=\color{christmas},commentstyle=\color{darkgray}
+]{christmas-card-2021.tex} % code page / back side
+\vfill
+{\small Typeset in Antykwa Półtawskiego and EB Garamond in \LaTeX.}
 % The source code and the images are available on
 % https://github.com/Kamik423/christmas-card-2021
 \end{document}
