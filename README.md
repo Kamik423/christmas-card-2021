@@ -1,5 +1,7 @@
 # Christmas Card 2021
 
+![image](photo.jpeg)
+
 ![image](christmas-card-2021.png)
 
 Christmas card set in LaTeX with EB Garamond.
@@ -9,7 +11,7 @@ Based on my [2021 christmas card](https://github.com/Kamik423/christmas-card-201
 The image here is generated via
 
 ```bash
-pdftoppm christmas-card-2021.pdf render -r 300 -png; mv -f render-1.png christmas-card-2021.png  
+pdftoppm christmas-card-2021.pdf render -r 300 -png; mv -f render-1.png christmas-card-2021.png
 ```
 
 ## License
